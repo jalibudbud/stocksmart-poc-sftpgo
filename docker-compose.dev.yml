@@ -12,8 +12,10 @@ services:
       SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__LOGO_PATH: /custom-folder/custom-logo.png
       SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_ADMIN__FAVICON_PATH: /custom-folder/favicon.png
       SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__FAVICON_PATH: /custom-folder/favicon.png
-      # SFTPGO_LOG_FILE_PATH: /logs/sftpgo.log
-      # SFTPGO_LOG_LEVEL: info
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_ADMIN__NAME: Custom Admin Name
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__NAME: Custom Client Name
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_ADMIN__SHORT_NAME: Custom Admin Short Name
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__SHORT_NAME: Custom Client Short Name
 
     volumes:
       - ./srv-sftpgo:/srv/sftpgo
