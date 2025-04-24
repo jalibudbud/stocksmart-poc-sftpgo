@@ -1,0 +1,7 @@
+srv-sftpgo/*
+var-lib-sftpgo/*
+logs/sftpgo.log
+
+!srv-sftpgo/.ignore
+!var-lib-sftpgo/.ignore
+!logs/.ignore

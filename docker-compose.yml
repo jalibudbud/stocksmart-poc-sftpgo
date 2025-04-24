@@ -1,0 +1,28 @@
+services:
+  sftpgo_template:
+    image: drakkan/sftpgo:latest
+    container_name: sftpgo-alshaya
+    ports:
+      - 22:2022  # SFTP port
+      - 8080:8080  # Admin Web UI port
+    restart: unless-stopped
+    environment:
+      SFTPGO_GRACE_TIME: 32
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_ADMIN__LOGO_PATH: /custom-folder/custom-logo.png
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__LOGO_PATH: /custom-folder/custom-logo.png
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_ADMIN__FAVICON_PATH: /custom-folder/favicon.png
+      SFTPGO_HTTPD__BINDINGS__0__BRANDING__WEB_CLIENT__FAVICON_PATH: /custom-folder/favicon.png
+      # SFTPGO_LOG_FILE_PATH: /logs/sftpgo.log
+      # SFTPGO_LOG_LEVEL: info
+
+    volumes:
+      - ./srv-sftpgo:/srv/sftpgo
+      - ./var-lib-sftpgo:/var/lib/sftpgo
+      - ./static:/usr/share/sftpgo/static/custom-folder
+      - ./logs:/logs
+    networks:
+      - sftpgo-template-network # Connect this service to the custom network
+
+networks:
+  sftpgo-template-network: # Define the custom network
+    external: true # Default network driver is bridge
