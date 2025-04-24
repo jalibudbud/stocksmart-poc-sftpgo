@@ -21,8 +21,8 @@ services:
       - ./static:/usr/share/sftpgo/static/custom-folder
       - ./logs:/logs
     networks:
-      - sftpgo-template-network # Connect this service to the custom network
+      - development # Connect this service to the custom network
 
 networks:
-  sftpgo-template-network: # Define the custom network
+  development: # Define the custom network
     external: true # Default network driver is bridge
